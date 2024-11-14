@@ -21,12 +21,12 @@
 
 // // Function to calculate the size of a colored bitmap image in the specified unit
 // float coloredBitmap(int w, int h, char* unit) {
-//     // Step 1: Calculate the size in bits (24 bits per pixel for RGB)
-//     float sizeInBits = w * h * 24;
+//     // Size in bits (24 bits per pixel for RGB)
+//     long long sizeInBits = (long long)w * h * 24;
 
-//     // Step 2: Convert the size to the desired unit
+//     // Convert the size to the desired unit
 //     if (strcmp(unit, "bt") == 0) {
-//         return sizeInBits;
+//         return sizeInBits; // Return size in bits
 //     } else if (strcmp(unit, "ko") == 0) {
 //         return sizeInBits / 1024.0; // Convert to kilobits
 //     } else if (strcmp(unit, "mo") == 0) {
@@ -42,35 +42,39 @@
 //     int width, height;
 //     char unit[3];
 
-//     // Get the width, height, and unit from the user
-//     printf("Enter the width and height of the image: ");
+//     // Get the width and height of the image from the user
+//     printf("Enter the width and height of the image (e.g., 1920 1080): ");
 //     scanf("%d %d", &width, &height);
 
+//     // Get the unit from the user (e.g., "bt", "ko", "mo", "go")
 //     printf("Enter the unit (bt for bits, ko for kilobits, mo for megabits, go for gigabits): ");
 //     scanf("%s", unit);
 
-//     // Call the function and print the result
+//     // Call the coloredBitmap function to calculate the size
 //     float size = coloredBitmap(width, height, unit);
+
+//     // Output the result
 //     if (size != -1) {
 //         printf("The size of the colored bitmap image is: %.2f %s\n", size, unit);
 //     } else {
-//         printf("Invalid unit entered.\n");
+//         printf("Invalid unit entered. Please use one of the following: bt, ko, mo, go.\n");
 //     }
 
 //     return 0;
 // }
 
 
+
 #include <string.h>
 
 // Function to calculate the size of a colored bitmap image in the specified unit
 float coloredBitmap(int w, int h, char* unit) {
-    // Step 1: Calculate the size in bits (24 bits per pixel for RGB)
-    float sizeInBits = w * h * 24;
+    // Size in bits (24 bits per pixel for RGB)
+    long long sizeInBits = (long long)w * h * 24;
 
-    // Step 2: Convert the size to the desired unit
+    // Convert the size to the desired unit
     if (strcmp(unit, "bt") == 0) {
-        return sizeInBits;
+        return sizeInBits; // Return size in bits
     } else if (strcmp(unit, "ko") == 0) {
         return sizeInBits / 1024.0; // Convert to kilobits
     } else if (strcmp(unit, "mo") == 0) {
