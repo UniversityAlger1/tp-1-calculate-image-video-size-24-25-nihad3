@@ -65,12 +65,12 @@
 
 // Function to calculate the size of a colored bitmap image in the specified unit
 float coloredBitmap(int w, int h, char* unit) {
-    // Step 1: Calculate the size in bits (24 bits per pixel for RGB)
-    float sizeInBits = w * h * 24;
+    // Calculate size in bits (24 bits per pixel for RGB)
+    long long sizeInBits = (long long)w * h * 24;
 
-    // Step 2: Convert the size to the desired unit
+    // Convert the size to the desired unit
     if (strcmp(unit, "bt") == 0) {
-        return sizeInBits;
+        return (float)sizeInBits; // Return size in bits
     } else if (strcmp(unit, "ko") == 0) {
         return sizeInBits / 1024.0; // Convert to kilobits
     } else if (strcmp(unit, "mo") == 0) {
@@ -81,3 +81,4 @@ float coloredBitmap(int w, int h, char* unit) {
         return -1; // Invalid unit
     }
 }
+
