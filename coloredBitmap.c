@@ -72,13 +72,12 @@ float coloredBitmap(int w, int h, char* unit) {
     if (strcmp(unit, "bt") == 0) {
         return (float)sizeInBits; // Return size in bits
     } else if (strcmp(unit, "ko") == 0) {
-        return sizeInBits / 1024.0; // Convert to kilobits
+        return sizeInBits / 8.0 / 1024.0; // Convert to kilobits: 1 byte = 8 bits, 1 kilobit = 1024 bits
     } else if (strcmp(unit, "mo") == 0) {
-        return sizeInBits / (1024.0 * 1024.0); // Convert to megabits
+        return sizeInBits / 8.0 / 1024.0 / 1024.0; // Convert to megabits: 1 byte = 8 bits, 1 megabit = 1024 kilobits
     } else if (strcmp(unit, "go") == 0) {
-        return sizeInBits / (1024.0 * 1024.0 * 1024.0); // Convert to gigabits
+        return sizeInBits / 8.0 / 1024.0 / 1024.0 / 1024.0; // Convert to gigabits: 1 byte = 8 bits, 1 gigabit = 1024 megabits
     } else {
         return -1; // Invalid unit
     }
 }
-
